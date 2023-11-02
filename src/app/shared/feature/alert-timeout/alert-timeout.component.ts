@@ -25,7 +25,6 @@ export class AlertTimeoutComponent {
     this.event.listening(ALERT_MESSAGE_EVENT)
       .pipe(takeUntilDestroyed())
       .subscribe((data: any) => {
-        console.log(data.payload);
         this.alerts.push(data.payload);
       });
   }
