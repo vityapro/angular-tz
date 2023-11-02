@@ -1,0 +1,57 @@
+
+<form [formGroup]="storeForm">
+  <div class="mb-3">
+    <label for="storeName" class="form-label">Store Name</label>
+    <input type="text" class="form-control" id="storeName"
+           formControlName="name"
+           placeholder="Enter store name">
+  </div>
+  <div class="col">
+    <ng-container formArrayName="products">
+      <div class="row g-3 mb-3" *ngFor="let productForm of products.controls; let i = index" [formGroup]="productForm">
+        <div class="col d-flex align-items-center">
+          <span class="fw-bold">{{productForm.controls['product'].value.name}}</span>
+        </div>
+        <div class="col-auto">
+          <input type="number" appOnlyNumbers formControlName="amount" class="form-control">
+        </div>
+        <div class="col-auto">
+          <button type="button" (click)="removeProduct(i)" class="btn btn-outline-primary">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</form>
+<div class="col">
+  <div class="row ">
+    <div class="col-6">
+      <button type="button" class="w-100 btn btn-primary" [ngClass]="{'disabled': storeForm.invalid}" (click)="addStore()">Save</button>
+    </div>
+    <div class="col-6">
+      <button type="button" (click)="openModal(template)" class="w-100 text-white btn btn-info">Add products</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Add product</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <ng-select [items]="availableProducts$ | async"
+               bindLabel="name"
+               [placeholder]="'Select product'"
+               [clearable]="false"
+               [formControl]="productControl">
+    </ng-select>
+    <input *ngIf="!productControl.invalid" type="text" appOnlyNumbers [formControl]="productAmountControl" class="form-control mt-2">
+  </div>
+  <div class="modal-footer text-end">
+    <button type="button" class="btn btn-primary" [ngClass]="{'disabled': productControl.invalid}" (click)="addProduct()">Add</button>
+  </div>
+</ng-template>

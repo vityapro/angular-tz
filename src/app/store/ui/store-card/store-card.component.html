@@ -1,0 +1,26 @@
+<div class="card border-top-0 border-end-0 border-4 border-primary shadow h-100 py-2">
+  <div class="card-body pt-0 pb-2">
+    <div class="row mb-3 no-gutters align-items-start">
+      <div class="col mr-2">
+        <span class="fs-1 fw-bold mb-1 lh-1">{{store | totalProducts}}</span>
+      </div>
+      <div class="col-auto">
+        <div class="h5 mb-0 font-weight-bold text-gray-800 d-flex align-items-center">
+          <span class="me-2">{{store.name}}</span>
+          <button type="button" (click)="remove.emit(store.id)"
+                  class="btn btn-sm btn-outline-primary">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="row flex-column">
+      <div class="col fs-3 lh-1 text-end mb-2">
+        <span>Most Popular:</span>
+      </div>
+      <div class="col text-end">
+        <span class="fw-bold">{{ store | endingProduct}}</span>
+      </div>
+    </div>
+  </div>
+</div>

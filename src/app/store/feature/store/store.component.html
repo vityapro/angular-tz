@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <span class="navbar-brand text-white mb-0 h1">Stores</span>
+  </div>
+</nav>
+<div class="container-fluid flex-grow-1 d-flex">
+  <div class="row flex-grow-1">
+    <div class="col-8 pt-5 border-end border-5 position-relative">
+      <div class="row">
+        <div class="col col-xl-4 col-md-6 mb-4" *ngFor="let store of storeService.storeItems(); trackBy:trackByFn">
+          <app-store-card
+                  [store]="store"
+                  (remove)="storeService.remove$.next($event)"
+          ></app-store-card>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 pt-5">
+      <div class="row position-absolute w-100 z-1"><app-alert-timeout></app-alert-timeout></div>
+      <div class="row flex-column">
+        <div class="col text-end mb-3 pb-3 border-bottom border-5">
+          <span class="fs-2 fw-bold">New Store</span>
+        </div>
+        <app-store-form></app-store-form>
+      </div>
+    </div>
+  </div>
+</div>

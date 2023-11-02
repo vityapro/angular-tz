@@ -1,0 +1,112 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name" : "Blue Pen"
+    },
+    {
+      "id": 2,
+      "name" : "Red Pen"
+    },
+    {
+      "id": 3,
+      "name" : "Yellow Pen"
+    },
+    {
+      "id": 4,
+      "name" : "White Pen"
+    },
+    {
+      "id": 5,
+      "name" : "Black Pen"
+    }
+  ],
+  "stores": [
+    {
+      "id": 1,
+      "name": "Red Store",
+      "products": [
+        {
+          "id": 1,
+          "amount": 300
+        },
+        {
+          "id": 2,
+          "amount": 3
+        },
+        {
+          "id": 3,
+          "amount": 17
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Yellow Store",
+      "products": [
+        {
+          "id": 1,
+          "amount": 12
+        },
+        {
+          "id": 4,
+          "amount": 250
+        },
+        {
+          "id": 3,
+          "amount": 26
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Blue Store",
+      "products": [
+        {
+          "id": 2,
+          "amount": 200
+        },
+        {
+          "id": 4,
+          "amount": 1
+        },
+        {
+          "id": 3,
+          "amount": 0
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Gray Store",
+      "products": [
+        {
+          "id": 2,
+          "amount": 2
+        },
+        {
+          "id": 5,
+          "amount": 120
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Black Store",
+      "products": [
+        {
+          "id": 2,
+          "amount": 5
+        },
+        {
+          "id": 4,
+          "amount": 31
+        },
+        {
+          "id": 1,
+          "amount": 5
+        }
+      ]
+    }
+  ]
+}
